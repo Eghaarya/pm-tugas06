@@ -36,14 +36,22 @@ class _CalculatorPageState extends State<CalculatorPage> {
 }
 ```
 
-## Cara Kerja Local State
-- Semua state disimpan di class `_CalculatorPageState`.
-- Variabel lokal:
-  - `_num1Controller` → menyimpan input angka pertama.
-  - `_num2Controller` → menyimpan input angka kedua.
-  - `result` → menyimpan hasil perhitungan yang ditampilkan di UI.
-- Saat pengguna menekan tombol operasi (`+`, `-`, `×`, `÷`):
-  1. Fungsi `_calculate()` membaca nilai input dari `_num1Controller` dan `_num2Controller`.
-  2. Melakukan perhitungan sesuai operasi.
-  3. Memanggil `setState()` untuk memperbarui `result`.
-  4. Flutter secara otomatis me-rebuild bagian widget yang menampilkan `result`.
+## 1. Deklarasi State Class dan Variabel Lokal
+Class `_CalculatorPageState` adalah State class untuk widget `CalculatorPage`.  
+Variabel `_num1Controller` dan `_num2Controller` menyimpan input angka sementara dari pengguna.  
+Variabel `result` menyimpan hasil perhitungan.  
+Semua ini merupakan **local state**, hanya berlaku di widget ini.
+
+## 2. Fungsi _calculate
+Fungsi `_calculate(String op)` membaca input dari TextField dan mengubahnya menjadi `double`.  
+Variabel `res` menyimpan hasil sementara perhitungan, sedangkan `operasi` menyimpan nama operasi yang dilakukan.
+
+## 3. Switch Case untuk Operasi
+Switch case digunakan untuk menentukan operasi matematika sesuai parameter `op` (`+`, `-`, `*`, `/`).  
+Untuk pembagian, dicek agar tidak terjadi error jika pembagi nol.  
+Nama operasi disimpan ke variabel `operasi` agar hasil yang ditampilkan lebih jelas.
+
+## 4. Memperbarui UI dengan setState
+Fungsi `setState()` memberi tahu Flutter bahwa **state berubah**, sehingga UI yang menampilkan `result` akan di-rebuild.  
+Variabel `result` menampilkan angka pertama, angka kedua, jenis operasi, dan hasilnya.  
+Perubahan state ini hanya mempengaruhi widget `_CalculatorPageState` dan tidak mempengaruhi widget lain.
