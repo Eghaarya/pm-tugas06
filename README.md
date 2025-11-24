@@ -9,7 +9,7 @@ NIM     : 221080200077
 Aplikasi kalkulator sederhana di Flutter yang menggunakan **local state** untuk menyimpan input angka dan hasil perhitungan sementara.  
 Local state memungkinkan widget **memperbarui UI secara otomatis ketika data berubah** tanpa memengaruhi widget lain.
 
-## Contoh Kode Local State
+## Kode Local State
 ```dart
 class _CalculatorPageState extends State<CalculatorPage> {
   final TextEditingController _num1Controller = TextEditingController();
